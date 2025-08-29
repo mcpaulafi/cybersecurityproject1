@@ -1,0 +1,14 @@
+# .coveragerc
+[run]
+source =
+    pages
+    config
+
+omit =
+    config/__init__.py
+    pages/__init__.py
+    pages/tests.py
+    pages/migrations/*
+    */migrations/*
+    */tests/*
+    */venv/*
