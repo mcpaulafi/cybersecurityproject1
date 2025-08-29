@@ -7,9 +7,7 @@ from django.contrib import messages
 from django.db import transaction
 from django.shortcuts import render, redirect
 from django.utils import timezone
-# SECURITY FLAW 1: CSRF
-# Fix by commenting out # the line below
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt # pylint: disable=unused-import
 from .models import Appointment, Question, Answer
 
 User = get_user_model()
