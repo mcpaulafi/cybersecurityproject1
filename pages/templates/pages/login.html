@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+
+    <title>Login page</title>
+    </head>
+
+
+    <body>
+        <h2>KumpulaSalon</h2>
+        <h1>Login</h1>
+
+        {% for message in messages %}
+                    <ul>
+                <li class="message {{ message.tags}}">{{ message }}</li>
+                    </ul>
+            {% endfor %}
+
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+<p><a href="{% url 'forgot' %}">Forgot your password?</a></p>
+
+
+</body>
+</html>

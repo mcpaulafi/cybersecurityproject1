@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+
+    <title>Recovery question setup</title>
+    </head>
+
+
+    <body>
+        <h2>KumpulaSalon</h2>
+
+        <h1>Recovery question setup</h1>
+        {% for message in messages %}
+                    <ul>
+                <li class="message {{ message.tags}}">{{ message }}</li>
+                    </ul>
+            {% endfor %}
+        <p><b>Username: </b> {{user.username}} </p>
+
+        <form id='question' action="{% url 'question' %}" method="POST">
+            {% csrf_token %}
+            <div name="optionbug">
+            Choose question:<br>
+            <select name="question_id">
+                {% for question in questions %}
+                    <option value="{{ question.id }}" {% if question == prev_answer.recovery_question %}selected{% endif %}>
+                        {{ question.get_text_display }}
+                    </option>
+                {% empty %}
+                    <option disabled>No available questions</option>
+                {% endfor %}
+            </select>
+            </div><br/>
+            Write your answer:<br>
+            <input type="text" name="answer" value="{{ prev_answer.answer }}"><br>
+            <input type="submit" value="Save"/>
+        </form>
+    <a href="{% url 'index' %}">Back to Booking</a>
+    </body>
+</html>

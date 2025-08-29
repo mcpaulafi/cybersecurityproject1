@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+
+    <title>Appointment list</title>
+    </head>
+
+
+    <body>
+        <h2>KumpulaSalon</h2>
+        <h1>Appointment list</h1>
+        <a href="{% url 'index' %}">Home</a>
+
+        <ul>
+            {% for appointment in appointments %}
+              <li>{{ appointment.start_date|date:"d.m.Y H:i" }} {{appointment.user_id.username}}</li>
+            {% empty %}
+              <li>No appointments available.</li>
+            {% endfor %}
+          </ul>
+
+        <a href="{% url 'index' %}">Home</a>
+    </body>
+</html>

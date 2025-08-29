@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+
+    <title>Change password</title>
+    </head>
+
+
+    <body>
+        <h2>KumpulaSalon</h2>
+        <h1>Change password</h1>
+
+        {% for message in messages %}
+                    <ul>
+                <li class="message {{ message.tags}}">{{ message }}</li>
+                    </ul>
+        {% endfor %}
+
+        {% if user.username %}
+            <form id='changepswd' action="{% url 'changepswd' %}" method="POST">
+            {% csrf_token %}
+            Username: <b> {{ user.username }}</b><br>
+            <input type="hidden" name="username" value="{{ user.username }}">
+            <br>
+
+            New password:<br>
+            <input type="password" name="password1"><br>
+            Repeat password:<br>
+            <input type="password" name="password2"><br>
+            <input type="submit" value="Save"/>
+        </form>
+        {% endif %}
+
+    <a href="{% url 'index' %}">Back to {% if user.is_authenticated %}Home{% else %}Login{% endif %}</a>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+
+    <title>Forgot password?</title>
+    </head>
+
+
+    <body>
+        <h2>KumpulaSalon</h2>
+        <h1>Forgot password?</h1>
+        {% for message in messages %}
+                    <ul>
+                <li class="message {{ message.tags}}">{{ message }}</li>
+                    </ul>
+            {% endfor %}
+        <form id='forgot' action="{% url 'forgot' %}" method="POST">
+            {% csrf_token %}
+            Username:<br>
+            <input type="text" name="username"><br>
+
+            Choose question:
+            <select name="question_id">
+    {% for q in questions %}
+        <option value="{{ q.id }}">{{ q.get_text_display }}</option>
+                {% empty %}
+                    <option disabled>No questions</option>
+                {% endfor %}
+            </select>
+
+            Write your answer:<br>
+            <input type="text" name="answer"><br>
+            <input type="submit" value="Send"/>
+        </form>
+
+    <a href="{% url 'login' %}">Back to login</a>
+
+    </body>
+</html>

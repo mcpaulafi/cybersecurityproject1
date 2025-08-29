@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+
+    <title>Booking app</title>
+    </head>
+
+
+    <body>
+
+        <h2>KumpulaSalon</h2>
+
+        <h1>Booking</h1>
+
+        {% for message in messages %}
+            {% if "answer" in message.tags %}
+                {% if forloop.first %}
+                    <ul>
+                {% endif %}
+                <li class="message {{ message.tags}}">{{ message }}</li>
+                {% if forloop.last %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        <table style="border: 0px solid blue; border-radius: 10px; width: 400px; padding: 10px; background-color: #CCCCCC; ">
+        <tr><td>
+            <p><b>Username: </b> {{user.username}} </p>
+
+        <!--SECURITY FLAW 5: Remove recovery questions and answers. Disable the line below.-->
+        <p><a href="{% url 'question' %}">Set recovery question</a></p>
+        <!--SECURITY FLAW 5: Replace the 'changepswd' with 'password_reset'-->
+        <p><a href="{% url 'changepswd' %}">Change password</a></p>
+
+        </td><td>
+        <form action='logout/' method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Logout"/>
+        </form>
+        </td>
+    </tr></table>
+
+        {% if request.user.is_superuser %}
+        <h2>Admin only: Appointment list</h2>
+        <p><a href="appointments/">View list of all appointments and bookings</a></p>
+        <br>
+        {% endif %}
+
+        <h2>Book an appointment</h2>
+        {% for message in messages %}
+            {% if "booking" in message.tags %}
+                {% if forloop.first %}
+                    <ul>
+                {% endif %}
+                <li class="message {{ message.tags}}">{{ message }}</li>
+                {% if forloop.last %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+
+        <form id='booking' action="{% url 'booking' %}" method="POST">
+            {% csrf_token %}
+            <div name="optionbug">
+            Choose time:<br>
+            <select name="start_date_id">
+                {% for appointment in available_appointments %}
+                    <option value="{{ appointment.id }}">
+                        {{ appointment.start_date|date:"d.m.Y H:i" }}
+                    </option>
+                {% empty %}
+                    <option disabled>No available appointments</option>
+                {% endfor %}
+            </select>
+            </div><br/>
+
+            Leave note related to the appointment:<br/>
+            <textarea name="note"></textarea><br/>
+
+            <input type="submit" value="Book"/>
+        </form>
+
+        <h2>Your appointments</h2>
+        <ul>
+            {% for appointment in user_appointments %}
+                <li class="{% if appointment.start_date < now %}past{% else %}upcoming{% endif %}">
+                    <b>{{ appointment.start_date|date:"d.m.Y H:i" }} with note:</b> 
+<!--SECURITY FLAW 3: Injection-->
+<!--Fix by: replace the row below with the line which is commented out-->
+                    {{ appointment.msg_text|safe}}
+                    <!-- {{ appointment.msg_text}}-->
+
+                </li>
+            {% empty %}
+                <li>You have no booked appointments.</li>
+            {% endfor %}
+        </ul>
+
+
+    </body>
+</html>

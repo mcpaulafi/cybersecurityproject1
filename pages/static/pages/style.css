@@ -1,0 +1,104 @@
+body {
+    background-color: #fdf6f9;
+    color: #333333;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 40px;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #b76e79; /* stylish accent for titles */
+    font-weight: 600;
+}
+
+.helptext {
+    color: #666 !important;
+}
+
+/* Lists */
+ul li {
+/*      position: relative; 
+      display: inline-block; */
+      list-style-type: circle;
+      padding-bottom: 10px;
+    }
+
+.message.success {
+    color: #33F !important;
+}
+
+.message.error {
+    color: darkred !important;
+}
+
+
+li.past {
+    text-decoration: line-through;
+}
+
+/* Page parts */
+
+div.optionbug {
+    margin: 20px; 
+    position: relative;
+}
+
+div.userdata {
+    width: 200px !important;
+    padding: 20px;
+    border: 1px solid black !important;
+}
+
+/* Form */ 
+
+select { 
+    width: 300px;
+    display: block;
+    border: 2px solid #999;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+select option {
+    background-color: #fff;
+}
+
+select:focus {
+    background-color: #ccc;
+}
+
+input { 
+    border: 2px solid #999;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 400px;
+    height: 50px;
+    border: 2px solid #999;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+/* Submit button */
+button, input[type="submit"] {
+    background-color: #b76e79;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    margin: 10px 0px 20px 10px;
+}
+
+/* Hover effect */
+button:hover, input[type="submit"]:hover {
+    background-color: #a0505c;
+}
