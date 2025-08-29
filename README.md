@@ -55,12 +55,17 @@ python3 manage.py runserver
 Open http://127.0.0.1:8000 in your browser
 ```
 
-2. Login to admin page 
+2. Login to admin pages
 ```bash
 http://127.0.0.1:8000/admin
 ```
 
-3. On admin view add future appointment times and create users
+3. On admin pages add future (bookable) appointment times and create users
+
+4. Logout as admin and login as regular user to book appointments etc.
+```bash
+http://127.0.0.1:8000/
+```
 
 
 ## Running tests
@@ -75,4 +80,9 @@ python3 manage.py test
 coverage run --source=pages manage.py test
 coverage report -m
 coverage html  # Generates HTML report in htmlcov/
+```
+
+3. Running pylint
+```bash
+pylint .
 ```
