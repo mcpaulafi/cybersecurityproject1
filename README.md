@@ -90,3 +90,7 @@ coverage html  # Generates HTML report in htmlcov/
 ```bash
 pylint .
 ```
+
+## Known issues
+
+With Google Chome browser (Version 139.0.7258.154) on Ubuntu, HTML dropdown list shows up on the left top corner of the browser and not at the position it is on the page layout. It works on Firefox though.
