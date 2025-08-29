@@ -54,11 +54,11 @@ def booking(request):
         note = request.POST.get('note')
 
 # SECURITY FLAW 3: Injection
-# Fix by removing comments from the 4 lines below
-#        if not re.match(r'^[\w\s.,!?-]*$', note):
-#            messages.error(request, "Note contains invalid characters!",
-#            extra_tags="booking")
-#            return redirect('index')
+# Fix by removing comments from the if clause
+        # if not re.match(r'^[\w\s.,!?-]*$', note):
+        #     messages.error(request, "Note contains invalid characters!",
+        #     extra_tags="booking")
+        #     return redirect('index')
 
         if (booked_time is not None) and (customer is not None):
             booked_time.user_id = customer
