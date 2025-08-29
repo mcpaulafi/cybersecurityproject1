@@ -27,6 +27,8 @@ class Appointment(models.Model):
         booked = f"booked for {self.user_id.username})" if self.user_id else "not booked yet"
         return f"ID {self.id} : {self.start_date} ({booked})"
 
+# SECURITY FLAW 5: Security Misconfiguration:
+# Fix by disabling Question class
 class Question(models.Model):
     """Class for preset questions for password recovery"""
     PASSWORD_QUESTIONS = [
@@ -42,6 +44,8 @@ class Question(models.Model):
     def __str__(self):
         return dict(self.PASSWORD_QUESTIONS).get(self.text, self.text)
 
+# SECURITY FLAW 5: Security Misconfiguration:
+# Fix by disabling Answer class
 class Answer(models.Model):
     """User answers for recovery questions"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
