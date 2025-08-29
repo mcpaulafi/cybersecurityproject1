@@ -31,3 +31,4 @@ env.bak/
 
 # Static and compiled assets
 staticfiles/
+sent_emails/*

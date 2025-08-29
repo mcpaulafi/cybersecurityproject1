@@ -129,3 +129,9 @@ LOGIN_URL = '/login/'
 
 # Redirect after login
 LOGIN_REDIRECT_URL = '/'
+
+
+# Email settings
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"  # folder to save emails
