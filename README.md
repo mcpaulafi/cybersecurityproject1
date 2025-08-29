@@ -34,12 +34,12 @@ git clone https://github.com/mcpaulafi/cybersecurityproject1.git
 
 2. Install dependencies with Poetry
 ```bash
-poetry install
+poetry install --no-root
 ```
 
 3. Activate virtual environment
 ```bash
-poertry shell
+poetry shell
 ```
 
 4. Apply migrations
