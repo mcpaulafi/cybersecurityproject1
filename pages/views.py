@@ -207,7 +207,7 @@ def changepswd(request):
                                 extra_tags="pswd_check")
                 return render(request, "pages/changepswd.html", context)
 # SECURITY FLAW 4: Identification and Authentication Failures:
-# First option for fix is removing comments from the following lines, 
+# First option for fix is removing comments from the following lines,
 # until comment END OF SECURITY FLAW
             # if username == pswd1:
             #     messages.error(request, "Username and password should not match!",

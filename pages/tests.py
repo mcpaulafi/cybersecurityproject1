@@ -1,9 +1,11 @@
 """Test module"""
-from django.test import TestCase
-from .models import Appointment, Question, Answer
-from django.contrib.auth import get_user_model
-from django.utils import timezone
 from datetime import timedelta
+from django.utils import timezone
+
+from django.test import TestCase
+from django.contrib.auth import get_user_model
+
+from .models import Appointment, Question, Answer
 
 User = get_user_model()
 
@@ -59,7 +61,7 @@ class QuestionModelTests(TestCase):
         db_values = set(Question.objects.values_list("text", flat=True))
         defined_values = {key for key, _ in Question.PASSWORD_QUESTIONS}
         self.assertSetEqual(db_values, defined_values)
- 
+
 class AnswerModelTests(TestCase):
     """Tests for the Answer model"""
 
@@ -81,6 +83,10 @@ class AnswerModelTests(TestCase):
 
     def test_user_can_have_only_one_answer(self):
         """OneToOneField enforces that each user has only one Answer"""
-        Answer.objects.create(user=self.user, recovery_question=Question.objects.get(text="mother_maiden"), answer="Smith")
+        Answer.objects.create(user=self.user,
+                               recovery_question=Question.objects
+                               .get(text="mother_maiden"), answer="Smith")
         with self.assertRaises(Exception):
-            Answer.objects.create(user=self.user, recovery_question=Question.objects.get(text="first_pet"), answer="Buddy")
+            Answer.objects.create(user=self.user,
+            recovery_question=Question.objects.get(text="first_pet"),
+            answer="Buddy")

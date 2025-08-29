@@ -5,7 +5,7 @@ from django.urls import path
 
 from . import views
 
-# SECURITY FLAW 4: Identification and Authentication Failures 
+# SECURITY FLAW 4: Identification and Authentication Failures
 # Fix here by
 # disable this line by commenting it out
 # path("changepswd/", views.changepswd, name="changepswd"),
