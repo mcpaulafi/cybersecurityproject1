@@ -62,7 +62,7 @@ http://127.0.0.1:8000/admin
 
 3. On admin pages add future (bookable) appointment times and create users
 
-4. Logout as admin and login as regular user to book appointments etc.
+4. Login to book appointments etc.
 ```bash
 http://127.0.0.1:8000/
 ```
