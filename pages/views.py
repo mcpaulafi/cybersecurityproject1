@@ -82,6 +82,8 @@ def appointments(request):
     }
     return render(request, "pages/appointments.html", context)
 
+# SECURITY FLAW 5: Security Misconfiguration:
+# Fix by disabling entire funtion and revert to built-in workflow
 
 @login_required
 def question(request):
@@ -125,7 +127,7 @@ def question(request):
     return render(request, "pages/question.html", context)
 
 # SECURITY FLAW 5: Security Misconfiguration:
-# Fix by: TODO
+# Fix by disabling entire funtion and revert to built-in workflow
 
 def forgot(request):
     """Forgot password handling"""
@@ -182,7 +184,8 @@ def forgot(request):
 
     return render(request, "pages/forgot.html", context)
 
-
+# SECURITY FLAW 4: Identification and Authentication Failures:
+# Second option for fix is to disable entire function and revert to built-in workflow
 def changepswd(request):
     """Custom made unsecure view for password change"""
     if request.method == 'POST':
@@ -204,7 +207,8 @@ def changepswd(request):
                                 extra_tags="pswd_check")
                 return render(request, "pages/changepswd.html", context)
 # SECURITY FLAW 4: Identification and Authentication Failures:
-# Fix by removing comments from the following lines, until comment END OF SECURITY FLAW
+# First option for fix is removing comments from the following lines, 
+# until comment END OF SECURITY FLAW
             # if username == pswd1:
             #     messages.error(request, "Username and password should not match!",
             #  extra_tags="pswd_check")
