@@ -12,8 +12,9 @@ from . import views
 
 # SECURITY FLAW 5: Security Misconfiguration
 # Fix here by
-# disable this line by commenting it out
+# disable these lines by commenting out
 # path("forgot/", views.forgot, name="forgot"),
+# path("question/", views.question, name="question"),
 
 urlpatterns = [
     path("", views.index, name="index"),
