@@ -10,7 +10,8 @@ The app demostrates following 5 security flaws and their fixes:
 
 ### Flaws
 
-View [screenshots of flaws](https://github.com/mcpaulafi/cybersecurityproject1/tree/356b1a3e0566526e1ca366dc2eb1a569a46ec3e3/screenshots)
+- View [screenshots of flaws](https://github.com/mcpaulafi/cybersecurityproject1/tree/main/screenshots)
+- [PDF report](https://github.com/mcpaulafi/cybersecurityproject1/blob/main/screenshots/flaw_documentation.pdf)
 
 ## Features
 
