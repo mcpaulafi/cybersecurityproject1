@@ -8,6 +8,10 @@ The app demostrates following 5 security flaws and their fixes:
 4. Identification and Authentication Failures
 5. Security Misconfiguration
 
+### Flaws
+
+View [screenshots of flaws](/tree/main/screenshots/)
+
 ## Features
 
 - Django web application
