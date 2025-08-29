@@ -214,16 +214,16 @@ def changepswd(request):
             #  extra_tags="pswd_check")
             #     return redirect('changepswd')
             # if not re.search(r'[A-Z]', pswd1):
-            #     messages.error(request, "Password must contain at least one uppercase
-            #  letter.", extra_tags="pswd_check")
+            #     messages.error(request, "Password must contain at least one uppercase letter.",
+            #                     extra_tags="pswd_check")
             #     return redirect('changepswd')
             # if not re.search(r'[a-z]', pswd1):
-            #     messages.error(request, "Password must contain at least one lowercase
-            #  letter.", extra_tags="pswd_check")
+            #     messages.error(request, "Password must contain at least one lowercase letter.",
+            #                     extra_tags="pswd_check")
             #     return redirect('changepswd')
             # if not re.search(r'[!@#$%^&*(),.?":{}|<>]', pswd1):
-            #     messages.error(request, "Password must contain at least one special
-            #  character.", extra_tags="pswd_check")
+            #     messages.error(request, "Password must contain at least one special character.",
+            #                     extra_tags="pswd_check")
             #     return redirect('changepswd')
 # END OF SECURITY FLAW
 
