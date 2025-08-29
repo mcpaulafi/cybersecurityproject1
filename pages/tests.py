@@ -4,10 +4,6 @@ from .models import Question
 
 class QuestionModelTests(TestCase):
     """Testing for Question model"""
-    def setUp(self):
-        # Populate DB with the defined questions
-        for key, _ in Question.PASSWORD_QUESTIONS:
-            Question.objects.create(text=key)
 
     def test_question_count_is_three(self):
         """Ensure there are exactly 3 recovery questions in the DB"""
