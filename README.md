@@ -47,18 +47,30 @@ python3 manage.py migrate
 python3 manage.py createsuperuser
 ```
 
-6. Run the development server
+## Running the app
+
+1. Run the development server
 ```bash
 python3 manage.py runserver
 Open http://127.0.0.1:8000 in your browser
 ```
 
-7. Running tests
+2. Login to admin page 
+```bash
+http://127.0.0.1:8000/admin
+```
+
+3. On admin view add future appointment times and create users
+
+
+## Running tests
+
+1. Running tests
 ```bash
 python3 manage.py test
 ```
 
-8. Running coverage
+2. Running coverage
 ```bash
 coverage run --source=pages manage.py test
 coverage report -m
