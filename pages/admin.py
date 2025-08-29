@@ -1,3 +1,4 @@
+"""Module for admin pages"""
 from django.contrib import admin
 
 

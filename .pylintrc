@@ -1,2 +1,11 @@
+[MASTER]
+load-plugins=pylint_django
+init-hook='import sys; import os; sys.path.append("."); os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings"); import django; django.setup()'
+ignore = migrations, tests, venv
+ignore-patterns = .*/migrations/.*, .*/tests/.*, .*/venv/.*
+
+[PYLINT_DJANGO]
+django-settings-module=config.settings
+
 [MESSAGES CONTROL]
 disable=no-member

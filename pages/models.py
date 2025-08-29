@@ -1,7 +1,9 @@
-from django.db import models
-from django.contrib.auth.models import User
+"""Module for managing models, users and time"""
 from django.utils import timezone
+from django.contrib.auth import get_user_model
+from django.db import models
 
+User = get_user_model()
 
 class Appointment(models.Model):
     """Class for appointment"""
